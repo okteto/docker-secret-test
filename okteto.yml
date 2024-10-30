@@ -1,0 +1,11 @@
+build:
+    web:
+      context: .
+      dockerfile: Dockerfile
+      secrets:
+        mysecret: secrets/mysecret.txt
+deploy:
+  compose: 
+    file: docker-compose.yml
+    services:
+    - web

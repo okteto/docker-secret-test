@@ -1,0 +1,20 @@
+services:
+  web:
+    # Define the web service using a pre-built image specified by the environment variable
+    image: $OKTETO_BUILD_WEB_IMAGE
+    ports:
+      - "8080:80"
+
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: mydatabase
+    ports:
+      - "5432:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+volumes:
+  db-data:
