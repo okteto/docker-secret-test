@@ -1,0 +1,5 @@
+deploy:
+  - name: File generator
+    command: echo Hello > secrets/mysecret.txt
+  - name: Deploy compose
+    command: okteto deploy -f okteto.yml
