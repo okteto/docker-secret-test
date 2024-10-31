@@ -1,0 +1,5 @@
+deploy:
+  - name: File generator
+    command: openssl rand -base64 12 | tee secrets/mysecret.txt
+  - name: Deploy compose
+    command: okteto deploy -f okteto.yml
